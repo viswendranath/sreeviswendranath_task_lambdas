@@ -21,12 +21,12 @@ public class CustomUtilities {
 	}
 	
 	public static List<String> getPallindromeStrings(List<String> strs){
-		return strs.stream().filter(s -> {
-			StringBuffer sb = new StringBuffer(s);
-			sb.reverse();
-			if(sb.toString().equals(s))
-				return true;
-			return false;
-		}).collect(Collectors.toList());
+		return strs.stream().filter(CustomUtilities::isPallindrome).collect(Collectors.toList());
+	}
+	
+	public static boolean isPallindrome(String s){
+		StringBuffer sb = new StringBuffer(s);
+		sb.reverse();
+		return sb.toString().equals(s);
 	}
 }
