@@ -8,12 +8,7 @@ public class CustomUtilities {
 	private CustomUtilities() {}
 	
 	public static double getAverage(List<Integer> numbersList) {
-		double avg;
-		
-		avg = numbersList.stream().reduce(0, (sum, val)-> sum+val);
-		avg /= numbersList.size();
-		
-		return avg;
+		return numbersList.stream().mapToInt(Integer::intValue).summaryStatistics().getAverage();
 	}
 	
 	public static List<String> getFilteredStrings(List<String> stringsList){
